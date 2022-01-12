@@ -3,3 +3,14 @@ spring:
     name: wechat-mini-service
   profiles:
     active: @p.name@
+
+
+logging:
+  level:
+    root: info # 默认的全局日志级别
+    org.springframework.web: debug # web相关的日志级别
+  #日志存放的路径
+  file:
+    max-size: 100MB  #日志文件最大尺寸，超过将会自动压缩
+    max-history: 7  #日志文件存放的日期，单位：Day（天），超过则删除
+    name: xxxxxxxxxxxxxxxxx.log
