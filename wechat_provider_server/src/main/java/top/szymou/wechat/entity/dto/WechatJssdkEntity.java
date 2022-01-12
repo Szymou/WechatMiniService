@@ -1,4 +1,4 @@
-package top.szymou.wechat.dto;
+package top.szymou.wechat.entity.dto;
 
 import java.io.Serializable;
 
@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @Blog: https://blog.csdn.net/weixin_43548748
  */
 
-public class JssdkConfigDTO implements Serializable {
+public class WechatJssdkEntity implements Serializable {
 
     private static final long serialVersionUID = 1047697114L;
 

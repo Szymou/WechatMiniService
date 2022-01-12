@@ -4,7 +4,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.HttpUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import top.szymou.wechat.entity.dto.JssdkConfigDTO;
+import top.szymou.wechat.entity.dto.WechatJssdkEntity;
 import top.szymou.wechat.exception.WechatApiException;
 import top.szymou.wechat.service.WechatApiUtilService;
 import top.szymou.wechat.entity.dto.WechatMsgDTO;
@@ -134,7 +134,7 @@ public class WechatApiUtilServiceImpl implements WechatApiUtilService {
      *   "timestamp": "1625639243"
      * }
      */
-    public JssdkConfigDTO getWxJsConfigParam(String url){
+    public WechatJssdkEntity getWxJsConfigParam(String url){
 
         //1、获取AccessToken
         String accessToken = getClobalAccessToken();
@@ -159,7 +159,7 @@ public class WechatApiUtilServiceImpl implements WechatApiUtilService {
         //6、将字符串进行sha1加密
         String signature = SHA1(str);
 
-        JssdkConfigDTO dto = new JssdkConfigDTO();
+        WechatJssdkEntity dto = new WechatJssdkEntity();
         dto.setAppId(appid);
         dto.setTimestamp(timestamp);
         dto.setNonceStr(noncestr);

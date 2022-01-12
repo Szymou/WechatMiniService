@@ -1,11 +1,11 @@
-package top.szymou.wechat.api;
+package top.szymou.wechat.api.feign;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
-import top.szymou.wechat.dto.BaseResult;
-import top.szymou.wechat.dto.WechatMsgWithColor;
+import top.szymou.wechat.entity.defalut.BaseResult;
+import top.szymou.wechat.entity.WechatMsgEntity;
 
 
 /**
@@ -45,14 +45,14 @@ public interface WechatClientFeign {
     BaseResult getWxJsConfigParam(@RequestParam("url") String url);
 
     @PostMapping("pushMsgToOpenId")
-    BaseResult pushMsgToOpenId(@RequestBody WechatMsgWithColor v, @RequestParam("sanbox") boolean sanbox);
+    BaseResult pushMsgToOpenId(@RequestBody WechatMsgEntity v, @RequestParam("sanbox") boolean sanbox);
 
     @PostMapping("pushMsgWithColor")
-    BaseResult pushMsgWithColor(@RequestBody WechatMsgWithColor v, @RequestParam("sanbox") boolean sanbox);
+    BaseResult pushMsgWithColor(@RequestBody WechatMsgEntity v, @RequestParam("sanbox") boolean sanbox);
 
     @PostMapping("pushMsgToOpenIds")
-    BaseResult pushMsgToOpenIds(@RequestBody WechatMsgWithColor v, @RequestParam("sanbox") boolean sanbox);
+    BaseResult pushMsgToOpenIds(@RequestBody WechatMsgEntity v, @RequestParam("sanbox") boolean sanbox);
 
     @PostMapping("pushMsgWithColorToOpenIds")
-    BaseResult pushMsgWithColorToOpenIds(@RequestBody WechatMsgWithColor v, @RequestParam("sanbox") boolean sanbox);
+    BaseResult pushMsgWithColorToOpenIds(@RequestBody WechatMsgEntity v, @RequestParam("sanbox") boolean sanbox);
 }

@@ -1,10 +1,8 @@
 package top.szymou.wechat.service;
 
 
-import top.szymou.wechat.entity.dto.JssdkConfigDTO;
+import top.szymou.wechat.entity.dto.WechatJssdkEntity;
 import top.szymou.wechat.entity.dto.WechatMsgDTO;
-
-import java.util.Map;
 
 /**
  * @author 熟知宇某
@@ -42,5 +40,5 @@ public interface WechatApiUtilService {
      * @param url
      * @return
      */
-    JssdkConfigDTO getWxJsConfigParam(String url);
+    WechatJssdkEntity getWxJsConfigParam(String url);
 }

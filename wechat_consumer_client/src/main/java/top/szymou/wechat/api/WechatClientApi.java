@@ -5,12 +5,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import top.szymou.wechat.dto.BaseResult;
-import top.szymou.wechat.dto.JssdkConfigDTO;
-import top.szymou.wechat.dto.WechatMsgWithColor;
+import top.szymou.wechat.api.feign.WechatClientFeign;
+import top.szymou.wechat.entity.WechatMsgEntity;
+import top.szymou.wechat.entity.defalut.BaseResult;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Description: 解析Feign正常/异常
@@ -50,17 +51,16 @@ public class WechatClientApi {
      * @param url
      * @return
      */
-    public JssdkConfigDTO getWxJsConfigParam(String url) {
-        BaseResult<JssdkConfigDTO> result = feign.getWxJsConfigParam(url);
+    public Map<String, Object> getWxJsConfigParam(String url) {
+        BaseResult<Map<String, Object>> result = feign.getWxJsConfigParam(url);
 
         if (null == result){
             return null;
         }
 
         if (result.getRes()) {
-            String json = JSONObject.toJSONString(result.getData());
-            JssdkConfigDTO dto = JSONObject.parseObject(json, JssdkConfigDTO.class);
-            return dto;
+            Map<String, Object> map = result.getData();
+            return map;
         }
 
         logger.error(JSONObject.toJSONString(result));
@@ -68,8 +68,8 @@ public class WechatClientApi {
     }
 
 
-    public boolean pushMsgToOpenId(WechatMsgWithColor v){return pushMsgToOpenId(v, false);}
-    public boolean pushMsgToOpenId(WechatMsgWithColor v, boolean sanbox) {
+    public boolean pushMsgToOpenId(WechatMsgEntity v){return pushMsgToOpenId(v, false);}
+    public boolean pushMsgToOpenId(WechatMsgEntity v, boolean sanbox) {
         BaseResult result = feign.pushMsgToOpenId(v, sanbox);
 
         if (null == result){
@@ -88,8 +88,8 @@ public class WechatClientApi {
 
     }
 
-    public boolean pushMsgWithColor(WechatMsgWithColor v){return pushMsgWithColor(v, false);}
-    public boolean pushMsgWithColor(WechatMsgWithColor v, boolean sanbox) {
+    public boolean pushMsgWithColor(WechatMsgEntity v){return pushMsgWithColor(v, false);}
+    public boolean pushMsgWithColor(WechatMsgEntity v, boolean sanbox) {
         BaseResult result = feign.pushMsgWithColor(v, sanbox);
 
         if (null == result){
@@ -108,8 +108,8 @@ public class WechatClientApi {
         }
     }
 
-    public List<String> pushMsgToOpenIds(WechatMsgWithColor v){return pushMsgToOpenIds(v, false);}
-    public List<String> pushMsgToOpenIds(WechatMsgWithColor v, boolean sanbox) {
+    public List<String> pushMsgToOpenIds(WechatMsgEntity v){return pushMsgToOpenIds(v, false);}
+    public List<String> pushMsgToOpenIds(WechatMsgEntity v, boolean sanbox) {
         BaseResult<List<String>> result = feign.pushMsgToOpenIds(v, sanbox);
 
         if (null == result){
@@ -127,8 +127,8 @@ public class WechatClientApi {
         }
     }
 
-    public List<String> pushMsgWithColorToOpenIds(WechatMsgWithColor v){return pushMsgWithColorToOpenIds(v, false);}
-    public List<String> pushMsgWithColorToOpenIds(WechatMsgWithColor v, boolean sanbox) {
+    public List<String> pushMsgWithColorToOpenIds(WechatMsgEntity v){return pushMsgWithColorToOpenIds(v, false);}
+    public List<String> pushMsgWithColorToOpenIds(WechatMsgEntity v, boolean sanbox) {
         BaseResult<List<String>> result = feign.pushMsgWithColorToOpenIds(v, sanbox);
 
         if (null == result){

@@ -1,6 +1,6 @@
-package top.szymou.wechat.dto;
+package top.szymou.wechat.entity;
 
-import top.szymou.wechat.enums.MsgColorEnum;
+import top.szymou.wechat.entity.enums.MsgColorEnum;
 
 /**
  * @Description: 消息文字和颜色
@@ -8,16 +8,16 @@ import top.szymou.wechat.enums.MsgColorEnum;
  * @date: 2022/1/7 15:10
  * @Blog: https://blog.csdn.net/weixin_43548748
  */
-public class MsgValueColorDTO {
+public class WechatMsgColorEntity {
     private String value;
     private String color;
 
-    public MsgValueColorDTO(String value, String color){
+    public WechatMsgColorEntity(String value, String color){
         this.value = value;
         this.color = color;
     }
 
-    public MsgValueColorDTO(String value, MsgColorEnum msgColorEnum){
+    public WechatMsgColorEntity(String value, MsgColorEnum msgColorEnum){
         this.value = value;
         this.color = msgColorEnum.getCode();
     }

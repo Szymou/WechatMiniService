@@ -1,4 +1,4 @@
-package top.szymou.wechat.enums;
+package top.szymou.wechat.entity.enums;
 
 public enum MsgColorEnum {
     Blue("#102b6a")

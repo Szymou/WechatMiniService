@@ -1,4 +1,4 @@
-package top.szymou.wechat.dto;
+package top.szymou.wechat.entity;
 
 
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.List;
  * @Blog: https://blog.csdn.net/weixin_43548748
  */
 
-public class WechatMsgWithColor {
+public class WechatMsgEntity {
 
     /**
      * 接收者的openid
@@ -45,7 +45,7 @@ public class WechatMsgWithColor {
     /**
      * 卡片中间的主要信息1（含颜色）
      */
-    private List<MsgValueColorDTO> msgValueColorDTOS;
+    private List<WechatMsgColorEntity> wechatMsgColorEntities;
 
     /**
      * 卡片中间的主要信息2(不含颜色)
@@ -100,12 +100,12 @@ public class WechatMsgWithColor {
         this.remark = remark;
     }
 
-    public List<MsgValueColorDTO> getMsgValueColorDTOS() {
-        return msgValueColorDTOS;
+    public List<WechatMsgColorEntity> getMsgValueColorDTOS() {
+        return wechatMsgColorEntities;
     }
 
-    public void setMsgValueColorDTOS(List<MsgValueColorDTO> msgValueColorDTOS) {
-        this.msgValueColorDTOS = msgValueColorDTOS;
+    public void setMsgValueColorDTOS(List<WechatMsgColorEntity> wechatMsgColorEntities) {
+        this.wechatMsgColorEntities = wechatMsgColorEntities;
     }
 
     public List<String> getKeywords() {

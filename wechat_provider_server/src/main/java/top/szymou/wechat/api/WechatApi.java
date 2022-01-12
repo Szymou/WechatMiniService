@@ -4,7 +4,7 @@ import cn.hutool.core.lang.Assert;
 import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson.JSONObject;
 import top.szymou.wechat.entity.WechatUserInfo;
-import top.szymou.wechat.entity.dto.JssdkConfigDTO;
+import top.szymou.wechat.entity.dto.WechatJssdkEntity;
 import top.szymou.wechat.entity.dto.MsgValueColorDTO;
 import top.szymou.wechat.entity.dto.WebTokenAndOpenIdDTO;
 import top.szymou.wechat.entity.dto.WechatMsgDTO;
@@ -217,7 +217,7 @@ public class WechatApi {
      *   "timestamp": "1625639243"
      * }
      */
-    public JssdkConfigDTO getWxJsConfigParam(String url){
+    public WechatJssdkEntity getWxJsConfigParam(String url){
         log.info("获取jssdk的URL：{}" , url);
         return wechatApiUtilService.getWxJsConfigParam(url);
     }

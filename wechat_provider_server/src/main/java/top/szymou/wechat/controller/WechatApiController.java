@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.*;
 import top.szymou.wechat.api.WechatApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import top.szymou.wechat.entity.dto.BaseResult;
-import top.szymou.wechat.entity.dto.JssdkConfigDTO;
+import top.szymou.wechat.entity.dto.WechatJssdkEntity;
 import top.szymou.wechat.entity.params.WechatMsgWithColor;
 
 import java.util.List;
@@ -34,8 +34,8 @@ public class WechatApiController {
 
     @GetMapping("getWxJsConfigParam")
     public BaseResult<?> getWxJsConfigParam(String url){
-        JssdkConfigDTO jssdkConfigDTO = wechatApi.getWxJsConfigParam(url);
-        return BaseResult.OK(jssdkConfigDTO);
+        WechatJssdkEntity wechatJssdkEntity = wechatApi.getWxJsConfigParam(url);
+        return BaseResult.OK(wechatJssdkEntity);
     }
 
     @PostMapping("pushMsgToOpenId")

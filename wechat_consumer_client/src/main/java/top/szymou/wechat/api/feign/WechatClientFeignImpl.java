@@ -1,8 +1,8 @@
-package top.szymou.wechat.api;
+package top.szymou.wechat.api.feign;
 
 import org.springframework.stereotype.Component;
-import top.szymou.wechat.dto.BaseResult;
-import top.szymou.wechat.dto.WechatMsgWithColor;
+import top.szymou.wechat.entity.defalut.BaseResult;
+import top.szymou.wechat.entity.WechatMsgEntity;
 
 
 /**
@@ -31,22 +31,22 @@ public class WechatClientFeignImpl implements WechatClientFeign {
     }
 
     @Override
-    public BaseResult pushMsgToOpenId(WechatMsgWithColor v, boolean sanbox) {
+    public BaseResult pushMsgToOpenId(WechatMsgEntity v, boolean sanbox) {
         return null;
     }
 
     @Override
-    public BaseResult pushMsgWithColor(WechatMsgWithColor v, boolean sanbox) {
+    public BaseResult pushMsgWithColor(WechatMsgEntity v, boolean sanbox) {
         return null;
     }
 
     @Override
-    public BaseResult pushMsgToOpenIds(WechatMsgWithColor v, boolean sanbox) {
+    public BaseResult pushMsgToOpenIds(WechatMsgEntity v, boolean sanbox) {
         return null;
     }
 
     @Override
-    public BaseResult pushMsgWithColorToOpenIds(WechatMsgWithColor v, boolean sanbox) {
+    public BaseResult pushMsgWithColorToOpenIds(WechatMsgEntity v, boolean sanbox) {
         return null;
     }
 

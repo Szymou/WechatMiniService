@@ -1,4 +1,4 @@
-package top.szymou.wechat.dto;
+package top.szymou.wechat.entity.defalut;
 
 
 import java.io.Serializable;

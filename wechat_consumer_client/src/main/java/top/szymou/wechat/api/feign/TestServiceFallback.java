@@ -1,4 +1,4 @@
-package top.szymou.wechat.api;
+package top.szymou.wechat.api.feign;
 
 import feign.hystrix.FallbackFactory;
 import org.slf4j.Logger;
