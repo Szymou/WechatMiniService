@@ -1,5 +1,5 @@
 spring:
   application:
-    name: wechat-provider
+    name: wechat-mini-service
   profiles:
     active: @p.name@
