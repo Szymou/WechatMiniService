@@ -1,0 +1,22 @@
+server:
+  port: 7570
+
+debug: false
+
+wechat:
+  appid: wx8060f49994f5ab2a6f
+  appsecret: 95605b11740c8a0999db602e5784b11569
+
+spring:
+  redis:
+    database: 1
+    host: 119.xxx.xx.126
+    port: 6379
+    password: 'xxxx'
+    lettuce:
+      pool:
+        max-active: 8   #最大连接数据库连接数,设 -1 为没有限制
+        max-idle: 8     #最大等待连接中的数量,设 0 为没有限制
+        max-wait: -1ms  #最大建立连接等待时间。如果超过此时间将接到异常。设为-1表示无限制。
+        min-idle: 0     #最小等待连接中的数量,设 0 为没有限制
+      shutdown-timeout: 100ms
