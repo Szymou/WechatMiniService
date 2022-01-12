@@ -16,7 +16,7 @@ import java.util.List;
  * @Blog: https://blog.csdn.net/weixin_43548748
  */
 @RestController
-@RequestMapping("wechatProvider")
+//@RequestMapping("wechatProvider")
 public class WechatApiController {
 
     @Autowired
