@@ -60,7 +60,7 @@
 >>         <version>x.x.x版本</version>
 >>     </dependency>
 >>```
->> 3. **配置服务端参数**
+>> 3. **配置参数**
 >> 
 >> ```java
 >>    wechat:
@@ -98,7 +98,7 @@
 > 2. 获取jssdk配置信息
 > Map<String, Object> entity = wechatClientApi.getWxJsConfigParam("url");
 >
-> 3.推送消息（四种方式：推送单人/多人、推送单人/多人[消息文字有颜色]）
+> 3. 推送消息（四种方式：推送单人/多人、推送单人/多人[消息文字有颜色]）
 >   ①推送单人//wechatClientApi.pushMsgToOpenId(msgEntity);
 >       WechatMsgEntity msgEntity = new WechatMsgEntity();
 >       msgEntity.setMsgTemplate("aGF337SdFcPuGwogB_2VJREgBGwIb61341awxY1Fte0"); //消息模板
