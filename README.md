@@ -10,7 +10,7 @@
 >> 2. 并发获取唯一数据，会出现卡线程，前后线程获取数据不一致，造成前线程数据失效
 >> 3. 代码冗余（能抽为啥不抽，抽代码如此快乐~） 
 >> 
->> 综上所述，为减弱或消除这些影响，写下了本项目，统一微信公众号服务。
+>> 为减弱或消除上述影响，写下了本项目，统一微信公众号服务。
 
 
 
@@ -19,8 +19,8 @@
 >
 >> **目的**：
 >> 
->> 1. 解决Accesstoken在并发下失效  
->> 2. 便利项目试用微信公众号接口功能
+>> 1. 解决AccessToken在并发下失效  
+>> 2. 便利项目使用微信公众号接口功能
 > 
 >> **架构**：
 >> 1. 基于springboot框架，java语言 
@@ -85,21 +85,24 @@
 >
 
 ## <span id="interface-use">接口使用<span>(持续更新)
-> 
-> ```java
+>
 > 自动注入：
+> ```java
 > @Autowired
 > private WechatClientApi wechatClientApi;
 > ```
-> ```java
 > 1. 获取AccessToken。
+> ```java
 > String accesstoken = wechatClientApi.getGlobalAccessToken();
-> 
+> ```
 > 2. 获取jssdk配置信息
+> ```java
 > Map<String, Object> entity = wechatClientApi.getWxJsConfigParam("url");
->
+>```
 > 3. 推送消息（四种方式：推送单人/多人、推送单人/多人[消息文字有颜色]）
->   ①推送单人//wechatClientApi.pushMsgToOpenId(msgEntity);
+> 
+> 3.1 推送单人`wechatClientApi.pushMsgToOpenId(msgEntity);`
+> ```java
 >       WechatMsgEntity msgEntity = new WechatMsgEntity();
 >       msgEntity.setMsgTemplate("aGF337SdFcPuGwogB_2VJREgBGwIb61341awxY1Fte0"); //消息模板
 >       msgEntity.setFirst("你好");                                              //消息头部
@@ -114,8 +117,9 @@
 >       msgEntity.setOpenId("oIYjF6LZ-5lq_Whf-Sy7Xb1pvbC8");                     //用户openID
 >
 >       boolean b = wechatClientApi.pushMsgToOpenId(msgEntity);                 //推送消息
-> 
->   ②推送多人//wechatClientApi.pushMsgToOpenIds(msgEntity);
+>``` 
+>   3.2 推送多人 `List<String> failedOpenIds = wechatClientApi.pushMsgToOpenIds(msgEntity);`
+> ```java
 >       WechatMsgEntity msgEntity = new WechatMsgEntity();
 >       msgEntity.setMsgTemplate("aGF337SdFcPuGwogB_2VJREgBGwIb61341awxY1Fte0"); //消息模板
 >       msgEntity.setFirst("你好");                                              //消息头部
@@ -136,9 +140,10 @@
 >       msgEntity.setOpenIds(openids);                                          //用户openIds
 >       /*************************msgEntity.setOpenIds()设置多个用户openIds********************/
 >       boolean b = wechatClientApi.pushMsgToOpenIds(msgEntity);                 //推送消息
+> ```
 > 
-> 
->   ③推送单人[消息文字有颜色]//wechatClientApi.pushMsgWithColor(msgEntity);
+>   3.3 推送单人[消息文字有颜色] `boolean b = wechatClientApi.pushMsgWithColor(msgEntity);`
+> ```java
 >       WechatMsgEntity msgEntity = new WechatMsgEntity();
 >       msgEntity.setMsgTemplate("aGF337SdFcPuGwogB_2VJREgBGwIb61341awxY1Fte0"); //消息模板
 >       msgEntity.setFirst("你好");                                              //消息头部
@@ -158,8 +163,12 @@
 > 
 >       msgEntity.setOpenId("oIYjF6LZ-5lq_Whf-Sy7Xb1pvbC8");                     //用户openID
 >
->       boolean b = wechatClientApi.pushMsgWithColor(msgEntity);                 //推送消息 
->   ④推送多人[消息文字有颜色]
+>       boolean b = wechatClientApi.pushMsgWithColor(msgEntity);  //推送消息  
+> ```
+> 
+>               
+>   3.4推送多人[消息文字有颜色] `List<String> failedOpenIds = wechatClientApi.pushMsgWithColorToOpenIds(msgEntity);`
+> ```java
 >       WechatMsgEntity msgEntity = new WechatMsgEntity();
 >       msgEntity.setMsgTemplate("aGF337SdFcPuGwogB_2VJREgBGwIb61341awxY1Fte0");
 >       msgEntity.setFirst("你好");
@@ -186,7 +195,7 @@
 >       msgEntity.setOpenIds(openids);
 >       /*************************msgEntity.setOpenIds()设置多个用户openIds********************/
 >       List<String> failedOpenIds = wechatClientApi.pushMsgWithColorToOpenIds(msgEntity);
->
+>```
 >
 >
 >
